@@ -33,7 +33,7 @@ public class GameMain extends AppCompatActivity {
         userName.setVisibility(View.GONE);
         v.setVisibility(View.GONE); //removes button from view
         //String message = "Greetings " + player.getName() + ".";
-        greeting.setText(message);
+        //greeting.setText(message);
 
     }
 
