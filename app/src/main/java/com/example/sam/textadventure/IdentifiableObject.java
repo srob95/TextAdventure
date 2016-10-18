@@ -14,15 +14,15 @@ public class IdentifiableObject {
         identifiers = new ArrayList<String>();
 
         //Iterates through the idents array and adds them to the list.
-        for (int i = 0; i < idents.length; i++) {
-            identifiers.add(idents[i].toLowerCase());
+        for (String string : idents) {
+            identifiers.add(string.toLowerCase());
         }
     }
 
     ///Checks if the object(string) exists in the list
     public boolean AreYou(String id) {
         boolean result = false;
-        if (identifiers.contains(id.toLowerCase())) {
+        if (identifiers.contains(id)) {
             result = true;
         }
         return result;

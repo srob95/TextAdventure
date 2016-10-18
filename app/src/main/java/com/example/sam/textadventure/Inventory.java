@@ -20,9 +20,13 @@ public class Inventory extends GameObject {
     //Checks if Item in Inventory
     public boolean HasItem(String id) {
         boolean result = false;
-        for (int i = 0; i < items.size(); i++) {
-            if ((items.get(i)).AreYou(id)) {
+        for (Item item : items) {
+            if (item.getFirstID().equals(id)) {
                 result = true;
+                break;
+            } else if (item.Name().equals(id)){
+                result = true;
+                break;
             }
         }
         return result;
@@ -35,13 +39,20 @@ public class Inventory extends GameObject {
 
     //Item Retrieval
     public Item Fetch(String id) {
-        Item item = null;
-        for (int i = 0; i < items.size(); i++) {
-            if ((items.get(i)).AreYou(id)) {
-                item = items.get(i);
-            }
+        Item itemReturn = null;
+        if (HasItem(id)) {
+                for (Item item : items) {
+                    if (item.AreYou(id)) {
+                        itemReturn = item;
+                        break;
+                    } else if (item.Name().equals(id)){
+                        itemReturn = item;
+                        break;
+                    }
+                }
+                return itemReturn;
         }
-        return item;
+        return itemReturn;
     }
 
     // Removes Item
