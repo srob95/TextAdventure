@@ -11,7 +11,7 @@ public class IdentifiableObject {
 
     //Constructor
     public IdentifiableObject(String[] idents) {
-        identifiers = new ArrayList<String>();
+        identifiers = new ArrayList<>();
 
         //Iterates through the idents array and adds them to the list.
         for (String string : idents) {
@@ -22,7 +22,7 @@ public class IdentifiableObject {
     ///Checks if the object(string) exists in the list
     public boolean AreYou(String id) {
         boolean result = false;
-        if (identifiers.contains(id)) {
+        if (identifiers.contains(id.toLowerCase())) {
             result = true;
         }
         return result;
