@@ -41,7 +41,14 @@ public class Location extends GameObject //, IHaveInventory
     }
 
     public String returnPathDirection(String id) {
-        return returnPath(id).getFirstID();
+        String ret = null;
+        for (Path path:paths) {
+            if (path.getFirstID().equals(id)) {
+                ret = returnPath(id).getFirstID();
+                break;
+            }
+        }
+        return ret;
     }
 
     public void addPath(Path path) {
@@ -99,8 +106,8 @@ public class Location extends GameObject //, IHaveInventory
     }
 
     public String getFullDescription() {
-        String result = description + "\n" + "In " + description + " you can find: " + " " + items.getItemList().toArray();
-        return result;
+        String result = description + "\n" + "In " + description + " you can find: " + " " + items.getItemList();
+        return result.replace("]","").replace("[", "").replace(",", "");
     }
 
     public String getDescription() {
