@@ -1,23 +1,20 @@
 language: android
+env:
+  matrix:
+    - ANDROID_TARGET=android-23 ANDROID_ABI=armeabi-v7a
 android:
-  components:
+    components:
     - platform-tools
     - tools
     - build-tools-24.0.1
-    - android-23
-
-
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    - addon-google_apis-google-19
-
-	
+    - android-ANDROID_TARGET
+    
 before_script:
- - chmod +x gradlew
+- echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI
+- emulator -avd test -no-skin -no-audio -no-window &amp;
 script:
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-audio -no-window &
+ - ./gradlew check -PdisablePreDex --continue --stacktrace
   - android-wait-for-emulator
-  - adb shell input keyevent 82 &
-
+  - adb devices
+  - adb shell input keyevent 82 &amp;
+  - ./gradlew connectedAndroidTest -PdisablePreDex --continue --stacktrace
