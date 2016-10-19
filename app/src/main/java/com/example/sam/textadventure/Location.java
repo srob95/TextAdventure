@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Sam on 11/10/2016.
  */
-public class Location extends GameObject //, IHaveInventory
+public class Location extends GameObject implements IHaveInventory
 {
     private Inventory items;
     private Player player;
@@ -28,6 +28,21 @@ public class Location extends GameObject //, IHaveInventory
             direction += "(" + p.getFirstID() + ")";
         }
         return direction;
+    }
+
+    @Override
+    public String getName() {
+        return super.Name();
+    }
+
+    @Override
+    public Item Take(String id) {
+        return getInventory().Take(id);
+    }
+
+    @Override
+    public void Put(Item item) {
+        getInventory().Put(item);
     }
 
     public Path returnPath(String id) {
@@ -69,7 +84,7 @@ public class Location extends GameObject //, IHaveInventory
         player = null;
     }
 
-    public GameObject locate(String s) {
+    public GameObject Locate(String s) {
         GameObject found = null;
 
         try {
