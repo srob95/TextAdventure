@@ -1,20 +1,11 @@
 language: android
-env:
-  matrix:
-    - ANDROID_TARGET=android-23 ANDROID_ABI=armeabi-v7a
 android:
-    components:
+  components:
+    - tools # to get the new `repository-11.xml`
+    - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
     - platform-tools
-    - tools
-    - build-tools-24.0.1
-    - android-ANDROID_TARGET
-    - sys-img-armeabi-v7a-android-wear-23
-before_script:
-- echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI
-- emulator -avd test -no-skin -no-audio -no-window &amp;
+    - build-tools-24.0.2
+    - android-23
+
 script:
- - ./gradlew check -PdisablePreDex --continue --stacktrace
-  - android-wait-for-emulator
-  - adb devices
-  - adb shell input keyevent 82 &amp;
-  - ./gradlew connectedAndroidTest -PdisablePreDex --continue --stacktrace
+   - ./gradlew build connectedCheck
