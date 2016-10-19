@@ -26,6 +26,6 @@ before_script:
   - adb shell input keyevent 82 &
 script:
 - ./gradlew androidDependencies
-- ./gradlew -q :Firext:dependencies
-  - ./gradlew -q :Firext:dependencyInsight --dependency support-v4 --configuration compile
-  - ./gradlew -q :Firext:dependencyInsight --dependency appcompat-v7 --configuration compile
+- ./gradlew -q :TextAdventure:dependencies
+  - ./gradlew -q :TextAdventure:dependencyInsight --dependency support-v4 --configuration compile
+  - ./gradlew -q :TextAdventure:dependencyInsight --dependency appcompat-v7 --configuration compile
