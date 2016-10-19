@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by Sam on 27/09/2016.
  */
-public class Player extends GameObject {
+public class Player extends GameObject implements IHaveInventory {
     private Inventory inventory;
     private Location currentLocation;
 
@@ -28,13 +28,17 @@ public class Player extends GameObject {
                 item = currentLocation.locate(id);
             }
         }
-
         return item;
     }
 
-    public String getFullDescription() {
-        String result = "You are carrying: " + " " + inventory.getItemList().toArray();
-        return result;
+    @Override
+    public String getName() {
+       return super.Name();
+    }
+
+    public String FullDescription() {
+        String result = "You are carrying:" + " " + inventory.getItemList() ;
+        return result.replace("]","").replace("[", "").replace(",", "");
     }
 
     public Inventory getInventory() {

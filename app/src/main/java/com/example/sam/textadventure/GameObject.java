@@ -7,9 +7,9 @@ public class GameObject extends IdentifiableObject {
     private String description;
     private String name;
 
-    public GameObject(String[] ids, String name, String desc) {
+    public GameObject(String[] ids, String objectName, String desc) {
         super(ids);
-        name = name.toLowerCase();
+        name = objectName.toLowerCase();
         description = desc;
     }
 
@@ -20,7 +20,8 @@ public class GameObject extends IdentifiableObject {
 
     //Returns the name and Id of the object
     public String ShortDescription() {
-        return name + " (" + getFirstID() + ")";
+        String shortDesc = name.toLowerCase() + " (" + getFirstID() + ")";
+        return shortDesc;
     }
 
     //Returns the description of the object

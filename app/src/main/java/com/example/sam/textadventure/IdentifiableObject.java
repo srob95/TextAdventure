@@ -11,11 +11,11 @@ public class IdentifiableObject {
 
     //Constructor
     public IdentifiableObject(String[] idents) {
-        identifiers = new ArrayList<String>();
+        identifiers = new ArrayList<>();
 
         //Iterates through the idents array and adds them to the list.
-        for (int i = 0; i < idents.length; i++) {
-            identifiers.add(idents[i].toLowerCase());
+        for (String string : idents) {
+            identifiers.add(string.toLowerCase());
         }
     }
 
