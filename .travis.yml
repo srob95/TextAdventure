@@ -8,7 +8,12 @@ android:
     - build-tools-24.0.1
     - android-23
     - sys-img-armeabi-v7a-android-23
-
+    
+    # Additional components
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-19
 
 before_install:
  - chmod +x gradlew
@@ -19,4 +24,8 @@ before_script:
   - emulator -avd test -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
-
+script:
+- ./gradlew androidDependencies
+- ./gradlew -q :Firext:dependencies
+  - ./gradlew -q :Firext:dependencyInsight --dependency support-v4 --configuration compile
+  - ./gradlew -q :Firext:dependencyInsight --dependency appcompat-v7 --configuration compile
