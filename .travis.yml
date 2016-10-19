@@ -1,12 +1,15 @@
 language: android
+jdk: oraclejdk8
 android:
   components:
     - tools # to get the new `repository-11.xml`
     - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
     - platform-tools
-    - build-tools-24.0.1
+    - build-tools-24.0.2
     - android-23
+
+
 before_install:
  - chmod +x gradlew
-script:
-   - ./gradlew build connectedCheck
+install: 
+- mvn install -Dmaven.compiler.target=1.8 -Dmaven.compiler.source=1.8 -DskipTests=true
