@@ -14,6 +14,12 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-19
+    
+    - echo yes | android update sdk --filter platform-tools --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter android-18 --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter sysimg-18 --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter extra-android-support --no-ui --force > /dev/null
+    - echo yes | android update sdk --filter extra-android-m2repository --no-ui --force > /dev/null
 
 before_install:
  - chmod +x gradlew
@@ -26,6 +32,3 @@ before_script:
   - adb shell input keyevent 82 &
 script:
 - ./gradlew androidDependencies
-- ./gradlew -q :dependencies
-  - ./gradlew -q :dependencyInsight --dependency support-v4 --configuration compile
-  - ./gradlew -q :dependencyInsight --dependency appcompat-v7 --configuration compile
