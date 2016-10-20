@@ -11,9 +11,38 @@ public class TestPlayerObject {
     @Test
     public void PlayerInitTest() {
         Player p = new Player("Sam", "A man");
-        Inventory i = new Inventory();
-        i.Put(new Item(new String[]{"id", "banana"}, "banana", "yellow + moldy"));
-
+        p.getInventory().Put(new Item(new String[]{"id", "banana"}, "banana", "yellow + moldy"));
+        String expected = "You are carrying: " + "\n" + "banana (id)";
+        String actual = p.FullDescription();
+        assertEquals(expected, actual);
     }
 
+    @Test
+    public void PlayerInventoryMissingTest() {
+        Player p = new Player("Sam", "A man");
+        // p.getInventory().Put(new Item(new String[]{"id", "banana"}, "banana", "yellow + moldy"));
+        String expected = "You are carrying: nothing.";
+        String actual = p.FullDescription();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void PlayerLocationTest() {
+        Player p = new Player("Sam", "A man");
+        Location l = new Location("Cave", "Dark and mysterious");
+        p.setCurrentLocation(l);
+        l.addPlayer(p);
+        String expected = "Dark and mysterious";
+        String actual = p.getCurrentLocation().getDescription();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void PlayerLocateTest() {
+        Player p = new Player("Sam", "A man");
+        p.getInventory().Put(new Item(new String[]{"bananaID", "banana"}, "banana", "yellow and moldy"));
+        String expected = "yellow and moldy";
+        String actual = p.Locate("bananaID").FullDescription();
+        assertEquals(expected, actual);
+    }
 }
