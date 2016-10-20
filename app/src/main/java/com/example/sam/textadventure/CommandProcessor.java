@@ -17,6 +17,7 @@ public class CommandProcessor extends GameObject{
         listOfCommands = new ArrayList<>();
         player = p;
         command = commands.toLowerCase().split (" ");
+        
         AddCommands ();
     }
 
