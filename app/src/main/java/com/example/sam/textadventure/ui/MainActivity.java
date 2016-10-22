@@ -204,13 +204,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             //Items
-            Item magicGem = new Item(new String[]{"0"}, "Magic_Gem", "Beautiful and Magical.");
-            Item greenGem = new Item(new String[]{"1"}, "Green_Gem", "A Lovely Emerald Colour.");
-            Item magicCandle = new Item(new String[]{"2"}, "Magic_Candle_of_the_Cursed_Flame", "It seems like just a candle.");
-            Item redGem = new Item(new String[]{"3"}, "Red_Gem", "A Lovely Ruby Colour.");
-            Item purpleGem = new Item(new String[]{"4"}, "Purple_Gem", "A Lovely Purple Colour.");
-            Item bedroomKey = new Item(new String[]{"5"}, "Bedroom_Key", "A Simple Key.");
-            Item holygem = new Item(new String[]{"6"}, "Holy_Gem", "The Ultimate Treasure.");
+            Item magicGem = new Item(new String[]{"MGem"}, "Magic_Gem", "Beautiful and Magical.");
+            Item greenGem = new Item(new String[]{"GGem"}, "Green_Gem", "A Lovely Emerald Colour.");
+            Item magicCandle = new Item(new String[]{"MCFlame"}, "Magic_Candle_of_the_Cursed_Flame", "It seems like just a candle.");
+            Item redGem = new Item(new String[]{"RGem"}, "Red_Gem", "A Lovely Ruby Colour.");
+            Item purpleGem = new Item(new String[]{"PGem"}, "Purple_Gem", "A Lovely Purple Colour.");
+            Item bedroomKey = new Item(new String[]{"BedKey"}, "Bedroom_Key", "A Simple Key.");
+            Item holygem = new Item(new String[]{"HGem"}, "Holy_Gem", "The Ultimate Treasure.");
 
 
             //Locations add

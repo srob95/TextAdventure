@@ -30,7 +30,7 @@ public class LookCommand extends Command{
                             itemDesc = p.getCurrentLocation().getFullDescription() + "\n" + p.getCurrentLocation().hasPaths() + "\n";
                         }
                         else if (p.getCurrentLocation().getInventory().HasItem (list.get(2))) {
-                            itemDesc = LookAtIn (list.get(2), p) + " was found in " + p.getCurrentLocation().getDescription() + "\n"; //If there are 3 words then container is player
+                            itemDesc = "A " + LookAtIn (list.get(2), p) + list.get(2) + " was found in " + p.getCurrentLocation().getDescription() + "\n"; //If there are 3 words then container is player
                         } else
                             itemDesc = LookAtIn (list.get(2), p);
                     } else if (text.length > 3) { //Checks whethere there are 5 words
@@ -38,7 +38,7 @@ public class LookCommand extends Command{
                         list.add (text [4].toLowerCase());
                         if (list.get(3) == "in") { //If there are 5 words then the 4th word must be "in"
                             inven = FetchContainer (p, list.get(4)); //Searches for the container
-                            itemDesc = LookAtIn (list.get(2), inven); //Gives the item Desc based on found container
+                            itemDesc = LookAtIn (list.get(2), inven) + "\n"; //Gives the item Desc based on found container
                         } else
                             return "What do you want to look in?";
                     } else
