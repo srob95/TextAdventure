@@ -30,25 +30,37 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <TextView
-                android:id="@+id/responseText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Begin"
-                android:layout_marginTop="46dp"
-                android:layout_below="@+id/commandProcessor"
-                android:layout_centerHorizontal="true" />
-
             <Button
                 android:id="@+id/confirmButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
+                android:text="Confirm"
+                android:layout_below="@+id/commandProcessor"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="10sp"
-                android:layout_marginRight="15sp"
-                android:text="Confirm" />
+                android:layout_alignParentEnd="true" />
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView2"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/commandProcessor"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="10sp"
+                android:layout_alignParentBottom="true">
+
+                <TextView
+                    android:id="@+id/responseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Begin"
+                    android:layout_below="@+id/commandProcessor"
+                    android:layout_centerHorizontal="true" />
+            </ScrollView>
 
 
         </RelativeLayout>

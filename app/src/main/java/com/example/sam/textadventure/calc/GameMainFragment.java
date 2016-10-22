@@ -52,7 +52,7 @@ public class GameMainFragment extends Fragment {
                 CommandProcessor cp = new CommandProcessor(player, commandProcessor.getText().toString());
                 String response = cp.Execute();
                 commandProcessor.setText("");
-                responseText.setText(responseText.getText() + "\n" + response);
+                responseText.setText(response + "\n" + responseText.getText() + "\n");
             }
         });
     }
