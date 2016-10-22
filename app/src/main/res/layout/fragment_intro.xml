@@ -35,8 +35,8 @@
                 android:id="@+id/guideView"
                 android:textSize="26dp"
                 android:textAlignment="center"
-                android:paddingTop="100sp"
-                android:paddingBottom="100sp" />
+                android:paddingTop="30sp"
+                android:paddingBottom="20sp" />
 
             <Button
                 android:layout_width="wrap_content"
