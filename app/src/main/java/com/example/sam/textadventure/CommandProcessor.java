@@ -36,9 +36,13 @@ public class CommandProcessor extends GameObject{
     {
         LookCommand look = new LookCommand ();
         MoveCommand move = new MoveCommand ();
+        PutCommand put = new PutCommand();
+        TakeCommand take = new TakeCommand();
 
         listOfCommands.add (move);
         listOfCommands.add (look);
+        listOfCommands.add(put);
+        listOfCommands.add(take);
 
     }
 

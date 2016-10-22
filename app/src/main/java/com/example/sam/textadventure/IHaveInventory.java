@@ -6,5 +6,9 @@ package com.example.sam.textadventure;
 public interface IHaveInventory {
         GameObject Locate(String id);
 
+        void Put (Item item);
+
+        Item Take (String id);
+
         String getName ();
 }
