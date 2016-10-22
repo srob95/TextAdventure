@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/descriptionView"
+        android:layout_toRightOf="@+id/descriptionView"
+        android:fillViewport="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/commandProcessor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Command"
+                android:paddingLeft="10sp"
+                android:paddingTop="10sp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/responseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Begin"
+                android:layout_marginTop="46dp"
+                android:layout_below="@+id/commandProcessor"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:id="@+id/confirmButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="10sp"
+                android:layout_marginRight="15sp"
+                android:text="Confirm" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+</LinearLayout>

@@ -25,22 +25,6 @@ public class InventoryFragment extends ListFragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_inventory, container, false);
     }
-
-    // This event is triggered soon after onCreateView().
-    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        // Setup any handles to view objects here
-        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        initializeUI();
-        super.onActivityCreated(savedInstanceState);
-    }
-
-
     private void initializeUI() {
         List<String> str = new ArrayList<>();
         str.add("Nothing");

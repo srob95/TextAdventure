@@ -1,4 +1,4 @@
-package com.example.sam.textadventure.calc;
+package com.example.sam.textadventure.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,19 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.sam.textadventure.R;
-import com.example.sam.textadventure.ui.GameMain;
-
-import org.w3c.dom.Text;
+import com.example.sam.textadventure.calc.ChapterFragment;
 
 /**
  * Created by Sam on 22/10/2016.
@@ -74,7 +67,7 @@ public class StoryActivity extends FragmentActivity {
     }
 
     public void onClick(View v) {
-        Intent intent = new Intent(this, GameMain.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("STATE", GAME_STATE);
         this.setResult(RESULT_OK, intent);
         finish();
