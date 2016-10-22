@@ -28,14 +28,16 @@
                 android:paddingTop="10sp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@+id/confirmButton"
+                android:layout_toStartOf="@+id/confirmButton" />
 
             <Button
                 android:id="@+id/confirmButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Confirm"
-                android:layout_below="@+id/commandProcessor"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
@@ -57,6 +59,7 @@
                     android:id="@+id/responseText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="18sp"
                     android:text="Begin"
                     android:layout_below="@+id/commandProcessor"
                     android:layout_centerHorizontal="true" />
