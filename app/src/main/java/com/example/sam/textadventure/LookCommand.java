@@ -20,7 +20,7 @@ public class LookCommand extends Command{
         IHaveInventory inven;
         String itemDesc = "";
 
-        
+
         if ((text.length >= 3) && (text.length <= 5) && (text.length != 4)) { //Checks that there are 3 or 5 words
             list = new ArrayList<> (Arrays.asList(text [0].toLowerCase(), text [1].toLowerCase(), text [2].toLowerCase()));
             if (list.get(0).equals("look")) { //Checks that the first word is "look"

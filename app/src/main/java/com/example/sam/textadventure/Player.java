@@ -25,7 +25,7 @@ public class Player extends GameObject implements IHaveInventory {
             item = inventory.Fetch(id);
         } else if (currentLocation != null) {
             if (currentLocation.getInventory().HasItem(id)) {
-                item = currentLocation.locate(id);
+                item = currentLocation.Locate(id);
             }
         }
         return item;
@@ -34,6 +34,16 @@ public class Player extends GameObject implements IHaveInventory {
     @Override
     public String getName() {
        return super.Name();
+    }
+
+    @Override
+    public Item Take(String id) {
+        return getInventory().Take(id);
+    }
+
+    @Override
+    public void Put(Item item) {
+        getInventory().Put(item);
     }
 
     public String FullDescription() {
