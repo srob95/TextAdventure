@@ -30,9 +30,9 @@ public class TakeCommand extends Command{
                 if (text.length == 2) { //Checks whether there are 2 words
                     item = TakeItem (p, firstInven, list.get(1));
                     if (item != null) {
-                        itemDesc = item.ShortDescription () + " has been placed in inventory";
+                        itemDesc = item.ShortDescription () + " has been placed in inventory" + "\n";
                     } else
-                        return "It seems there is a " + text [1] + " in your inventory already\r\n Please specify from where you would like to take the " + text [1];
+                        return "It seems there is a " + text [1] + " in your inventory already\r\n Please specify from where you would like to take the " + text [1] + "\n";
                 } else if (text.length > 2) { //Checks whethere there are 4 words
                     list.add (text [2].toLowerCase ());
                     list.add (text [3].toLowerCase ());
@@ -41,7 +41,7 @@ public class TakeCommand extends Command{
                         if (inven != null) {
                             item = TakeItem (p, inven, text [1]); //Places the item from the container into
                             if (item != null) {
-                                itemDesc = "You have taken the " + item.ShortDescription () + " from the " + inven.getName();
+                                itemDesc = "You have taken the " + item.ShortDescription () + " from the " + inven.getName() + "\n";
                             } else
                                 return text [1] + " does not exist";
                         } else

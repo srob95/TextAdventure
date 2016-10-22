@@ -37,7 +37,7 @@ public class GameMainFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_commands, container, false);
         player = new Player("You", "Handsome");
         MainActivity activity = (MainActivity) getActivity();
-        player.setCurrentLocation(activity.getCurrentLocation());
+        activity.getLocations().get(0).addPlayer(player);
         initUI();
         return view;
     }

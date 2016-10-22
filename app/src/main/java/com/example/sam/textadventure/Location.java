@@ -79,9 +79,10 @@ public class Location extends GameObject implements IHaveInventory
         return player;
     }
 
-    public void removePlayer(Player p) {
+    public Player removePlayer(Player p) {
         player = p;
         player = null;
+        return player;
     }
 
     public GameObject Locate(String s) {
@@ -121,7 +122,7 @@ public class Location extends GameObject implements IHaveInventory
     }
 
     public String getFullDescription() {
-        String result = description + "\n" + "In " + description + " you can find: " + " " + items.getItemList();
+        String result = getName() + " (" + description + ")" + "\n" + "In the " + getName() + " you can find: " + " " + items.getItemList();
         return result.replace("]","").replace("[", "").replace(",", "");
     }
 
