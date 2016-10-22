@@ -39,7 +39,7 @@ public class GameMainFragment extends Fragment {
         MainActivity activity = (MainActivity) getActivity();
         activity.getLocations().get(0).addPlayer(player);
         activity = (MainActivity) getActivity();
-        player.setCurrentLocation(activity.getCurrentLocation());
+        activity.getLocations().get(0).addPlayer(player);
         TextView tempText = (TextView) view.findViewById(R.id.responseText);
         tempText.setText(activity.getCommandHistory());
 
