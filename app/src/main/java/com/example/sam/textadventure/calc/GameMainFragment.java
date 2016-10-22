@@ -36,8 +36,6 @@ public class GameMainFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_commands, container, false);
         player = new Player("You", "Handsome");
-        MainActivity activity = (MainActivity) getActivity();
-        activity.getLocations().get(0).addPlayer(player);
         activity = (MainActivity) getActivity();
         activity.getLocations().get(0).addPlayer(player);
         TextView tempText = (TextView) view.findViewById(R.id.responseText);
