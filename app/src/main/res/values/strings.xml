@@ -3,4 +3,24 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
+    <string name="chapter1">
+       The game takes place in the kingdom of Warwick along time ago. The player is identified as an adventurer/treasure hunter, sneaking into the forbidden ruins of Doven in search of adventure and unfathomable wealth and riches. You have spent many years travelling the lands, gathering up strange tales about the forgotten castle, tales that tell of treasures fit for kings, dark and evil monsters and puzzles built by minds that cannot be human. Now is your time to fulfill your destiny and find the riches that you have dreamed about.
+    </string>
+    <string name="chapter2">
+        The king of the land has caught wind of your plans, and has sent his elite soldiers to impede your way. Up until now, none has been able to stop you. As you cross the hill and the castle comes into view, you see a figure in a dark cloak standing before you. The figure has a hood over their head so their face is cast in shadow. You do not recognise the person. Suddenly a voice rings out, but strangely you feel like the voice is in your mind.
+    </string>
+    <string name="chapter3">
+     “Traveeeeelllleerrr, adveeeentureeeerrr, TREASURE seekeeeeeer…. “ the voice hisses. “I am the graaaaaand wizard, appointed by King -------. Heeeeere I stand to stop youuuuuuuu. But I will defyyyyy my masteeeeers wishes and giiiive you what you deseeeerve, TREASURE hunteeeeeeeeerrrrrr.”
+    </string>
+    <string name="chapter4">
+      Suddenly, the sky goes dark and you feel a burning sensation moving up from your feet, up to your abdomen, up, up to your face, hotter and hotter. As your vision starts to get blurry, you manage to see 2 points of light in the darkness of the hood on the figure, like burning, hate filled eyes….
+    </string>
+    <string name="chapter5">
+      …You wake up in a dark room. The floor feels like rock, and you immediately believe that you are in a jail cell. You vision starts adjusting to the darkness and you realise the dim amount of light is coming from a candle on the table beside you. As you stand up, you take the candle and hold it up high to try to see the rest of the room. The walls are made of stone and completely surround, except for one side that seems to be an opening. The opening looks like it leads down a hall and you think you can almost make out a sign at the end of the hall…
+    </string>
+    <string name="chapter6">
+        So begins your adventure!
+        Find a way to escape your predicament and seek out the treasures that you have dreamed about!
+    </string>
+
 </resources>

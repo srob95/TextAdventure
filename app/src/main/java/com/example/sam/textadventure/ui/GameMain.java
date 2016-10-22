@@ -1,10 +1,11 @@
 package com.example.sam.textadventure.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,13 +15,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.example.sam.textadventure.R;
+import com.example.sam.textadventure.calc.HelpFragment;
+import com.example.sam.textadventure.calc.IntroductionFragment;
 import com.example.sam.textadventure.calc.InventoryFragment;
+import com.example.sam.textadventure.calc.StoryActivity;
 
 public class GameMain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private static final int INTRO_STATE = 0;
+    private static final int GAME_STATE = 1;
+
+
+    private Integer GameState = INTRO_STATE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,29 @@ public class GameMain extends AppCompatActivity implements NavigationView.OnNavi
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        initUI();
+    }
+
+    private void initUI() {
+        if (GameState != GAME_STATE) {
+            FragmentTransaction ft;
+            getSupportFragmentManager().executePendingTransactions();
+            ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_holder, new IntroductionFragment());
+            ft.addToBackStack("Intro").commit();
+        } else {
+            FragmentTransaction ft;
+            getSupportFragmentManager().executePendingTransactions();
+            ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_holder, new HelpFragment());
+            ft.addToBackStack("help").commit();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+        initUI();
     }
 
     @Override
@@ -91,13 +121,36 @@ public class GameMain extends AppCompatActivity implements NavigationView.OnNavi
             getSupportFragmentManager().executePendingTransactions();
             ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.fragment_holder, new InventoryFragment());
-            ft.addToBackStack("Main").commit();
-        } else if (id == R.id.nav_quit) {
-
+            ft.addToBackStack("Inventory").commit();
+        } else if (id == R.id.nav_story) {
+            Intent i = new Intent(getApplicationContext(), StoryActivity.class);
+            startActivityForResult(i, 0);
+        } else if (id == R.id.nav_help) {
+            getSupportFragmentManager().executePendingTransactions();
+            ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_holder, new HelpFragment());
+            ft.addToBackStack("Help").commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void onClick(View v) {
+        Intent i = new Intent(getApplicationContext(), StoryActivity.class);
+        startActivityForResult(i, 1);
+    }
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (intent == null)
+            Log.i("ACTIVITY-RESULT-Intent", "IS NULL");
+        else {
+            Bundle bundle = new Bundle();
+            bundle = intent.getExtras();
+            GameState = bundle.getInt("STATE");
+        }
+    }
+
 }

@@ -9,41 +9,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.GameMain">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="What is your name adventurer?"
-        android:id="@+id/storyView"
-        android:textSize="24sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/userName"
-        android:layout_below="@+id/storyView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Confirm "
-        android:id="@+id/confirmButton"
-        android:onClick="confirmButtonClick"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="274dp"
+            android:layout_gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/greeting"
-        android:textSize="24dp"
-        android:text="Greetings"
-        android:layout_alignTop="@+id/userName"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome to Text Adventure"
+                android:id="@+id/titleView"
+                android:layout_gravity="center_horizontal|top"
+                android:textSize="26dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To begin your quest, press below."
+                android:id="@+id/guideView"
+                android:textSize="26dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Begin"
+                android:onClick="onClick"
+                android:id="@+id/button"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+    </FrameLayout>
+
 </RelativeLayout>
