@@ -31,9 +31,9 @@ public class PutCommand extends Command{
                     item = GetItem (firstInven, list.get(1));
                     if (item != null) {
                         PutItem (item, p);
-                        itemDesc = item.ShortDescription()+ " has been placed in inventory";
+                        itemDesc = item.ShortDescription()+ " has been placed in inventory" + "\n";
                     } else
-                        itemDesc = list.get(1) + " is not in inventory";
+                        itemDesc = list.get(1) + " is not in inventory" + "\n";
                 } else if (text.length > 2) { //Checks whethere there are 4 words
                     list.add (text [2].toLowerCase());
                     list.add (text [3].toLowerCase());
@@ -42,9 +42,9 @@ public class PutCommand extends Command{
                         if (inven != null) {
                             item = GetItem (firstInven, text [1]); //Gives the item Desc based on found container
                             if (item != null) {
-                                itemDesc = PutItem (item, inven);
+                                itemDesc = PutItem (item, inven) + "\n";
                             } else
-                                itemDesc = list.get(1) + " is not in inventory";
+                                itemDesc = list.get(1) + " is not in inventory" + "\n";
                         }else
                             return "Target for item does not exist";
                     } else

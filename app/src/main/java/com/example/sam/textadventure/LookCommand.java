@@ -26,8 +26,11 @@ public class LookCommand extends Command{
             if (list.get(0).equals("look")) { //Checks that the first word is "look"
                 if (list.get(1).equals("at")) { //Checks that the seconds word is "at"
                     if (text.length == 3) { //Checks whether there are 3 words
-                        if (p.getCurrentLocation().getInventory().HasItem (list.get(2))) {
-                            itemDesc = LookAtIn (list.get(2), p) + " was found in " + p.getCurrentLocation().getDescription(); //If there are 3 words then container is player
+                        if (p.getCurrentLocation().getName().equals(list.get(2))){
+                            itemDesc = p.getCurrentLocation().getFullDescription() + "\n" + p.getCurrentLocation().hasPaths() + "\n";
+                        }
+                        else if (p.getCurrentLocation().getInventory().HasItem (list.get(2))) {
+                            itemDesc = LookAtIn (list.get(2), p) + " was found in " + p.getCurrentLocation().getDescription() + "\n"; //If there are 3 words then container is player
                         } else
                             itemDesc = LookAtIn (list.get(2), p);
                     } else if (text.length > 3) { //Checks whethere there are 5 words

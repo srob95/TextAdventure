@@ -29,7 +29,7 @@ public class MoveCommand extends Command{
                     if (p.getCurrentLocation().returnPathDirection (list.get(1)) != null) {
                         path = p.getCurrentLocation().returnPath (list.get(1));
                         MovePlayerToNewPath (path);
-                        locationDesc = "Moved to new location: " + p.getCurrentLocation().getFullDescription() + p.getCurrentLocation().hasPaths ();
+                        locationDesc = "Moved to new location: " + p.getCurrentLocation().getFullDescription() + p.getCurrentLocation().hasPaths () + "\n";
                     } else
                         return "You cannot move to a location that does not exist";
                 } else

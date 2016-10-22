@@ -185,19 +185,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void LoadResources() {
         if (locations.isEmpty()) {
             //Locations
-            Location cell = new Location("Cave", "Dark and Mysterious.");
-            Location prisonWing = new Location("Prison Wing", "Cold and Disgusting.");
-            Location prisonWard = new Location("Prison Ward", "Freezing!");
-            Location prisonWardEast = new Location("Prison Ward East", "Still Freezing!");
-            Location prisonWardSouth = new Location("Prison Ward South", "Even Colder!");
-            Location castleCourtyard = new Location("Castle Courtyard", "Overcast.");
-            Location castleKitchen = new Location("Castle Kitchen", "Dirty and Unhygienic, Yuk!");
-            Location castleDiningRoom = new Location("Castle Dining Room", "Superfluous.");
-            Location castleMorgue = new Location("Castle Morgue", "Spooky!");
-            Location castleCentralHall = new Location("Castle Central Hall", "Evil.");
-            Location stairway = new Location("Stairway to Heaven", "Overzealous.");
-            Location heavensGates = new Location("Heaven's Gates", "A strange name for a bedroom.");
-            Location kingsRoom = new Location("The Kings Room", "Glorious.");
+            Location cell = new Location("Cell", "Dark and Mysterious");
+            Location prisonWing = new Location("Prison_Wing", "Cold and Disgusting");
+            Location prisonWard = new Location("Prison_Ward", "The Prison Ward is Freezing!");
+            Location prisonWardEast = new Location("Prison_Ward_East", "Still Freezing!");
+            Location prisonWardSouth = new Location("Prison_Ward_South", "Even Colder!");
+            Location castleCourtyard = new Location("Castle_Courtyard", "Overcast.");
+            Location castleKitchen = new Location("Castle_Kitchen", "Dirty and Unhygienic, Yuk!");
+            Location castleDiningRoom = new Location("Castle_Dining_Room", "Superfluous.");
+            Location castleMorgue = new Location("Castle_Morgue", "Spooky!");
+            Location castleCentralHall = new Location("Castle_Central_Hall", "Evil.");
+            Location stairway = new Location("Stairway_to_Heaven", "Overzealous.");
+            Location heavensGates = new Location("Heaven's_Gates", "A strange name for a bedroom.");
+            Location kingsRoom = new Location("The_Kings_Room", "Glorious.");
 
             //Items
             Item magicGem = new Item(new String[]{"0"}, "Magic Gem", "Beautiful and Magical.");
@@ -293,8 +293,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public Location getCurrentLocation() {
-        return currentLocation;
+    public List<Location> getLocations() {
+        return locations;
     }
 
 }
