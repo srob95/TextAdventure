@@ -29,7 +29,7 @@ import java.util.List;
 public class GameMainFragment extends Fragment {
     private View view;
     private Player player;
-
+    private MainActivity activity;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,6 +38,11 @@ public class GameMainFragment extends Fragment {
         player = new Player("You", "Handsome");
         MainActivity activity = (MainActivity) getActivity();
         activity.getLocations().get(0).addPlayer(player);
+        activity = (MainActivity) getActivity();
+        player.setCurrentLocation(activity.getCurrentLocation());
+        TextView tempText = (TextView) view.findViewById(R.id.responseText);
+        tempText.setText(activity.getCommandHistory());
+
         initUI();
         return view;
     }
@@ -52,7 +57,9 @@ public class GameMainFragment extends Fragment {
                 CommandProcessor cp = new CommandProcessor(player, commandProcessor.getText().toString());
                 String response = cp.Execute();
                 commandProcessor.setText("");
-                responseText.setText(response + "\n" + responseText.getText() + "\n");
+                String output = response + "\n" + responseText.getText() + "\n";
+                responseText.setText(output);
+                activity.updateHistory(output);
             }
         });
     }

@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Integer GameState = INTRO_STATE;
     private List<Location> locations = new ArrayList<Location>();
     private Location currentLocation;
+    private String commandHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void LoadResources() {
         if (locations.isEmpty()) {
             //Locations
+
             Location cell = new Location("Cell", "Dark and Mysterious");
             Location prisonWing = new Location("Prison_Wing", "Cold and Disgusting");
             Location prisonWard = new Location("Prison_Ward", "The Prison Ward is Freezing!");
@@ -198,6 +200,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Location stairway = new Location("Stairway_to_Heaven", "Overzealous.");
             Location heavensGates = new Location("Heaven's_Gates", "A strange name for a bedroom.");
             Location kingsRoom = new Location("The_Kings_Room", "Glorious.");
+
+
 
             //Items
             Item magicGem = new Item(new String[]{"0"}, "Magic Gem", "Beautiful and Magical.");
@@ -297,4 +301,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return locations;
     }
 
+    public String getCommandHistory() {
+        return commandHistory;
+    }
+
+    public void updateHistory(String text) {
+        commandHistory = text;
+    }
 }
