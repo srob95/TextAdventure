@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Integer GameState = INTRO_STATE;
     private List<Location> locations = new ArrayList<Location>();
     private Location currentLocation;
+    private String commandHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void LoadResources() {
         if (locations.isEmpty()) {
             //Locations
-            Location cell = new Location("Cave", "Dark and Mysterious.");
+            Location cell = new Location("Cell", "Dark and Mysterious.");
             Location prisonWing = new Location("Prison Wing", "Cold and Disgusting.");
             Location prisonWard = new Location("Prison Ward", "Freezing!");
             Location prisonWardEast = new Location("Prison Ward East", "Still Freezing!");
@@ -297,4 +298,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return currentLocation;
     }
 
+    public String getCommandHistory() {
+        return commandHistory;
+    }
+
+    public void updateHistory(String text) {
+        commandHistory = text;
+    }
 }
