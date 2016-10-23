@@ -12,9 +12,9 @@ public class TestPlayerObject {
     public void PlayerInitTest() {
         Player p = new Player("Sam", "A man");
         p.getInventory().Put(new Item(new String[]{"id", "banana"}, "banana", "yellow + moldy"));
-        String expected = "You are carrying: " + "\n" + "banana (id)";
+        String expected = "You are carrying: " + "\r\n\tbanana (id)";
         String actual = p.FullDescription();
-        assertEquals(expected, actual);
+        assertEquals(expected, actual.trim());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class TestPlayerObject {
         l.addPlayer(p);
         String expected = "Dark and mysterious";
         String actual = p.getCurrentLocation().getDescription();
-        assertEquals(expected, actual);
+        assertEquals(expected, actual.trim());
     }
 
     @Test

@@ -97,7 +97,7 @@ public class TestLookCommand {
         //Sets the value of the expected result
         String expected = "A very shiny Gem";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
     @Test
     public void LookInvalidNoWordsTest() {
@@ -116,7 +116,7 @@ public class TestLookCommand {
         //Sets the value of the expected result
         String expected = "I don't know how to look like that";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
     @Test
     public void LookInvalidLookTest() {

@@ -60,11 +60,11 @@ public class TestCommandProcessor {
         //Sets the test value to actual
         String actual = command.Execute();
         //Sets the value of the expected result
-        String expected = "Moved to new location: Another location\n" +
-                "In Another location you can find:  \n" +
+        String expected = "Moved to new location: location2 (Another location)\n" +
+                "In the location2 you can find:  \n" +
                 "Paths exist to the: (south)";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
     @Test
     public void FindCommandLookFailTest() {

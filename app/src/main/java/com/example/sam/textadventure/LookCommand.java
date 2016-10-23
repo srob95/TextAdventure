@@ -33,7 +33,7 @@ public class LookCommand extends Command{
                             itemDesc = "A " + LookAtIn (list.get(2), p) + list.get(2) + " was found in " + p.getCurrentLocation().getDescription() + "\n"; //If there are 3 words then container is player
                         } else
                             itemDesc = LookAtIn (list.get(2), p);
-                    } else if (text.length > 3) { //Checks whethere there are 5 words
+                    } else if (text.length > 3) { //Checks whether there are 5 words
                         list.add (text [3].toLowerCase());
                         list.add (text [4].toLowerCase());
                         if (list.get(3) == "in") { //If there are 5 words then the 4th word must be "in"
@@ -54,7 +54,7 @@ public class LookCommand extends Command{
 
     private IHaveInventory FetchContainer (Player p, String containterId)
     {
-        IHaveInventory obj = (IHaveInventory)p;
+        IHaveInventory obj = p;
         obj = (IHaveInventory) p.getInventory().Fetch (containterId);
 
         if ((containterId.equals("me")) || (containterId.equals("inventory"))) {
