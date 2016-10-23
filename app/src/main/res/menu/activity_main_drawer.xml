@@ -9,11 +9,11 @@
         android:title="Game Main" />
     <item
         android:id="@+id/nav_inventory"
-        android:title="Inventory" />
+        android:title="Player Inventory" />
     <group android:id="@+id/helpGroup">
         <item
             android:id="@+id/nav_help"
-            android:title="Help" />
+            android:title="How to Play" />
     </group>
 
 </menu>

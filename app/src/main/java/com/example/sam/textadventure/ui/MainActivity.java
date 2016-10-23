@@ -32,6 +32,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final int INTRO_STATE = 0;
     private static final int GAME_STATE = 1;
+    private static final int GAME_INTRO_STATE = 2;
 
     private static final int CELL = 0;
     private static final int PRISON_WING = 1;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private Integer GameState = INTRO_STATE;
     private List<Location> locations = new ArrayList<Location>();
+    private Player player = new Player("You", "Handsome");
     private Location currentLocation;
     private String commandHistory;
 
@@ -90,6 +92,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ft.addToBackStack("Intro").commit();
         } else {
             LoadResources();
+            int locationID;
+            boolean initPlayer = false;
+            for (int i = 0; i < getLocations().size(); i++) {
+                //Check if player is added to map
+                if (getLocations().get(i) != null) {
+                    locationID = i;
+                    initPlayer = true;
+                }
+            }
+            if (initPlayer) {
+                this.getLocations().get(0).addPlayer(player);
+            }
             FragmentTransaction ft;
             getSupportFragmentManager().executePendingTransactions();
             ft = getSupportFragmentManager().beginTransaction();
@@ -177,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (intent == null)
             Log.i("ACTIVITY-RESULT-Intent", "IS NULL");
         else {
+
             Bundle bundle = new Bundle();
             bundle = intent.getExtras();
             GameState = bundle.getInt("STATE");
@@ -202,11 +217,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Location kingsRoom = new Location("The_Kings_Room", "Glorious.");
 
 
-
             //Items
             Item magicGem = new Item(new String[]{"MGem"}, "Magic_Gem", "Beautiful and Magical.");
             Item greenGem = new Item(new String[]{"GGem"}, "Green_Gem", "A Lovely Emerald Colour.");
-            Item magicCandle = new Item(new String[]{"MCFlame"}, "Magic_Candle_of_the_Cursed_Flame", "It seems like just a candle.");
+            Item magicCandle = new Item(new String[]{"YGem"}, "Yellow Gem", "This looks like....");
             Item redGem = new Item(new String[]{"RGem"}, "Red_Gem", "A Lovely Ruby Colour.");
             Item purpleGem = new Item(new String[]{"PGem"}, "Purple_Gem", "A Lovely Purple Colour.");
             Item bedroomKey = new Item(new String[]{"BedKey"}, "Bedroom_Key", "A Simple Key.");
@@ -308,4 +322,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void updateHistory(String text) {
         commandHistory = text;
     }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public int getGameState() {
+        return GameState;
+    }
+
 }
