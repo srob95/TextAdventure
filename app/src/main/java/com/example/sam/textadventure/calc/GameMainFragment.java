@@ -78,6 +78,13 @@ public class GameMainFragment extends Fragment {
             public void onClick(View v) {
                 CommandProcessor cp = new CommandProcessor(activity.getPlayer(), commandProcessor.getText().toString());
                 String response = cp.Execute();
+                activity.openPath();
+                if (activity.checkEnd()){
+                    response = ("A shiver runs down your spine, the prickling of an earie silence " +
+                            "begins to bite at the back of your neck.\n Congratulations you have escaped the castle!" +
+                            "But is this really the end?\n" +
+                            "You can continue to explore and perhaps uncover secrets untold.");
+                }
                 commandProcessor.setText("");
                 String output = response + "\n" + responseText.getText() + "\n";
                 responseText.setText(output);

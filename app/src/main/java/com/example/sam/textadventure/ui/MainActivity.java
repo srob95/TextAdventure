@@ -198,6 +198,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    public void openPath(){
+        if (checkOpenPath()){
+            if(locations.get(STAIRWAY).returnPath("south") == null) {
+                Path stairwayPathSouth = new Path(locations.get(STAIRWAY), locations.get(HEAVENS_GATES), "South", "Southern Door");
+                locations.get(STAIRWAY).addPath(stairwayPathSouth);
+            }
+        }
+    }
+
+    public boolean checkEnd(){
+        boolean result = false;
+        if(player.getInventory().HasItem("hgem")){
+            result = true;
+        }
+        return result;
+    }
+
+    public boolean checkOpenPath(){
+        boolean result = false;
+
+        if(player.getInventory().HasItem("mgem") && player.getInventory().HasItem("ggem") &&
+                player.getInventory().HasItem("ygem") && player.getInventory().HasItem("rgem") &&
+                player.getInventory().HasItem("pgem")){
+            result = true;
+        }
+
+        return result;
+    }
+
     private void LoadResources() {
         if (locations.isEmpty()) {
             //Locations
@@ -284,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Path castleDiningRoomPathWest = new Path(castleDiningRoom, castleCentralHall, "West", "Western Door");
 
             Path stairwayPathNorth = new Path(stairway, castleCentralHall, "North", "Northern Door");
-            Path stairwayPathSouth = new Path(stairway, heavensGates, "South", "Southern Door");
+
 
             Path heavensGatesPathNorth = new Path(heavensGates, stairway, "North", "Northern Door");
             Path heavensGatesPathWest = new Path(heavensGates, kingsRoom, "West", "Western Door");
@@ -314,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             locations.get(CASTLE_DINING_ROOM).addPath(castleDiningRoomPathNorth);
             locations.get(CASTLE_DINING_ROOM).addPath(castleDiningRoomPathWest);
             locations.get(STAIRWAY).addPath(stairwayPathNorth);
-            locations.get(STAIRWAY).addPath(stairwayPathSouth);
+
             locations.get(HEAVENS_GATES).addPath(heavensGatesPathNorth);
             locations.get(HEAVENS_GATES).addPath(heavensGatesPathWest);
             locations.get(KINGS_ROOM).addPath(kingsRoomPathEast);
