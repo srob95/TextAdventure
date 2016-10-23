@@ -28,7 +28,7 @@ public class TestTakeCommand {
         //Sets the value of the expected result
         String expected = "You have taken the long sword1 (sword1) from the location";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
     @Test
     public void TakeItemNoItemTest() {
@@ -50,7 +50,7 @@ public class TestTakeCommand {
         //Sets the value of the expected result
         String expected = "sword does not exist";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
     @Test
     public void TakeInvalidTest() {
@@ -72,6 +72,6 @@ public class TestTakeCommand {
         //Sets the value of the expected result
         String expected = "Error in take input";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
 }

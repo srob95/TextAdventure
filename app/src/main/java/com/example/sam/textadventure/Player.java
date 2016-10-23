@@ -18,7 +18,7 @@ public class Player extends GameObject implements IHaveInventory {
     public GameObject Locate(String id)
     {
         GameObject item = null;
-
+        id = id.toLowerCase();
         if (id.equals("me") || id.equals("inventory")) {
             item = this;
         } else if (inventory.HasItem(id)) {
@@ -47,7 +47,12 @@ public class Player extends GameObject implements IHaveInventory {
     }
 
     public String FullDescription() {
-        String result = "You are carrying:" + " " + inventory.getItemList() ;
+        String result;
+        if (inventory.getItemList().isEmpty()) {
+            result = "You are carrying:" + " nothing.";
+        } else {
+            result = "You are carrying:" + " " + inventory.getItemList();
+        }
         return result.replace("]","").replace("[", "").replace(",", "");
     }
 

@@ -27,11 +27,11 @@ public class TestMoveCommand {
         String actual = move.Execute (test, new String[] { "move", "north"});
 
         //Sets the value of the expected result
-        String expected = "Moved to new location: Another location\n" +
-                "In Another location you can find:  \n" +
-                "Paths exist to the: ";
+        String expected = "Moved to new location: location2 (Another location)\n" +
+                "In the location2 you can find:  \n" +
+                "Paths exist to the:";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
     @Test
     public void MovePlayerBackTest() {
@@ -59,11 +59,11 @@ public class TestMoveCommand {
         actual = move.Execute (test, new String[] { "move", "south"});
 
         //Sets the value of the expected result
-        String expected = "Moved to new location: A location\n" +
-                "In A location you can find:  \n" +
+        String expected = "Moved to new location: location (A location)\n" +
+                "In the location you can find:  \n" +
                 "Paths exist to the: (north)";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
     @Test
     public void MovePlayerBackItemStillExistsTest() {
@@ -93,11 +93,11 @@ public class TestMoveCommand {
         actual = move.Execute (test, new String[] { "move", "south"});
 
         //Sets the value of the expected result
-        String expected = "Moved to new location: A location\n" +
-                "In A location you can find:  " +
+        String expected = "Moved to new location: location (A location)\n" +
+                "In the location you can find:  " +
                 "\r\n\tgemmy (gemmy stone)\n" +
                 "Paths exist to the: (north)";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
 }

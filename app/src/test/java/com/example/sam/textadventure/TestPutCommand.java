@@ -3,6 +3,8 @@ package com.example.sam.textadventure;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 /**
  * To work on unit tests, switch the Test Artifact in the Build Variants view.
@@ -24,11 +26,11 @@ public class TestPutCommand {
 
         //Sets the test value to actual
         String actual = put.Execute (test, new String[] {"put", "sword", "in" , "location"});
-
+        actual = actual.toString();
         //Sets the value of the expected result
         String expected = "long sword (sword) has been placed in: location";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
     @Test
     public void PutNotItemTest() {
@@ -45,11 +47,11 @@ public class TestPutCommand {
         location.addPlayer (test);
 
         //Sets the test value to actual
-        String actual = put.Execute (test, new String[] {"put", "swag", "in" , "location"});
+        String actual = (put.Execute(test, new String[]{"put", "swag", "in", "location"}));
 
         //Sets the value of the expected result
         String expected = "swag is not in inventory";
 
-        assertEquals (expected, actual);
+        assertEquals(expected, actual.trim());
     }
 }
