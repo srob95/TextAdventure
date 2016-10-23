@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.example.sam.textadventure.R;
+import com.example.sam.textadventure.ui.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,18 +20,29 @@ import java.util.List;
  */
 public class InventoryFragment extends ListFragment {
 
+    private View view;
+    private MainActivity activity;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_inventory, container, false);
+        activity = (MainActivity) getActivity();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inventory, container, false);
+        return view;
     }
+
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        initializeUI();
+        super.onActivityCreated(savedInstanceState);
+    }
+
     private void initializeUI() {
         List<String> str = new ArrayList<>();
-        str.add("Nothing");
 
         //Set adapter for list view + listen for click action
-        ArrayAdapter adapter = new ArrayAdapter<>(getActivity(), R.layout.list_view_item, str);
+        ArrayAdapter adapter = new ArrayAdapter<>(activity, R.layout.list_view_item, activity.getPlayer().getInventory().getItemList());
         setListAdapter(adapter);
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

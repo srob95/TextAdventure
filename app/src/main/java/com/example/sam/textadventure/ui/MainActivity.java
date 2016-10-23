@@ -203,28 +203,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Locations
 
             Location cell = new Location("Cell", "Dark and Mysterious");
-            Location prisonWing = new Location("Prison_Wing", "Cold and Disgusting");
-            Location prisonWard = new Location("Prison_Ward", "The Prison Ward is Freezing!");
-            Location prisonWardEast = new Location("Prison_Ward_East", "Still Freezing!");
-            Location prisonWardSouth = new Location("Prison_Ward_South", "Even Colder!");
-            Location castleCourtyard = new Location("Castle_Courtyard", "Overcast.");
-            Location castleKitchen = new Location("Castle_Kitchen", "Dirty and Unhygienic, Yuk!");
-            Location castleDiningRoom = new Location("Castle_Dining_Room", "Superfluous.");
-            Location castleMorgue = new Location("Castle_Morgue", "Spooky!");
-            Location castleCentralHall = new Location("Castle_Central_Hall", "Evil.");
-            Location stairway = new Location("Stairway_to_Heaven", "Overzealous.");
-            Location heavensGates = new Location("Heaven's_Gates", "A strange name for a bedroom.");
-            Location kingsRoom = new Location("The_Kings_Room", "Glorious.");
+            Location prisonWing = new Location("Prison Wing", "Cold and Disgusting");
+            Location prisonWard = new Location("Prison Ward", "The Prison Ward is Freezing!");
+            Location prisonWardEast = new Location("Prison Ward East", "Still Freezing!");
+            Location prisonWardSouth = new Location("Prison Ward South", "Even Colder!");
+            Location castleCourtyard = new Location("Castle Courtyard", "Overcast.");
+            Location castleKitchen = new Location("Castle Kitchen", "Dirty and Unhygienic, Yuk!");
+            Location castleDiningRoom = new Location("Castle Dining Room", "Superfluous.");
+            Location castleMorgue = new Location("Castle Morgue", "Spooky!");
+            Location castleCentralHall = new Location("Castle Central Hall", "Evil.");
+            Location stairway = new Location("Stairway to Heaven", "Overzealous.");
+            Location heavensGates = new Location("Heaven's Gates", "A strange name for a bedroom.");
+            Location kingsRoom = new Location("The Kings Room", "Glorious.");
 
 
             //Items
-            Item magicGem = new Item(new String[]{"MGem"}, "Magic_Gem", "Beautiful and Magical.");
-            Item greenGem = new Item(new String[]{"GGem"}, "Green_Gem", "A Lovely Emerald Colour.");
+            Item magicGem = new Item(new String[]{"MGem"}, "Magic Gem", "Beautiful and Magical.");
+            Item greenGem = new Item(new String[]{"GGem"}, "Green Gem", "A Lovely Emerald Colour.");
             Item magicCandle = new Item(new String[]{"YGem"}, "Yellow Gem", "This looks like....");
-            Item redGem = new Item(new String[]{"RGem"}, "Red_Gem", "A Lovely Ruby Colour.");
-            Item purpleGem = new Item(new String[]{"PGem"}, "Purple_Gem", "A Lovely Purple Colour.");
-            Item bedroomKey = new Item(new String[]{"BedKey"}, "Bedroom_Key", "A Simple Key.");
-            Item holygem = new Item(new String[]{"HGem"}, "Holy_Gem", "The Ultimate Treasure.");
+            Item redGem = new Item(new String[]{"RGem"}, "Red Gem", "A Lovely Ruby Colour.");
+            Item purpleGem = new Item(new String[]{"PGem"}, "Purple Gem", "A Lovely Purple Colour.");
+            Item bedroomKey = new Item(new String[]{"BedKey"}, "Bedroom Key", "A Simple Key.");
+            Item holygem = new Item(new String[]{"HGem"}, "Holy Gem", "The Ultimate Treasure.");
 
 
             //Locations add
@@ -253,30 +253,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             //Paths
             Path cellPathWest = new Path(cell, prisonWing, "West", "Western Door");
+
             Path prisonWingPathEast = new Path(prisonWing, cell, "East", "Eastern Door");
             Path prisonWingPathSouth = new Path(prisonWing, prisonWard, "South", "Southern Door");
+
             Path prisonWardPathEast = new Path(prisonWard, prisonWardEast, "East", "Eastern Door");
             Path prisonWardPathNorth = new Path(prisonWard, prisonWing, "North", "Northern Door");
             Path prisonWardPathSouth = new Path(prisonWard, prisonWardSouth, "South", "Southern Door");
+
             Path prisonWardSouthPathNorth = new Path(prisonWardSouth, prisonWard, "North", "Northern Door");
-            Path prisonWardSouthPathSouth = new Path(prisonWardSouth, prisonWard, "South", "Southern Door");
+            Path prisonWardSouthPathSouth = new Path(prisonWardSouth, castleMorgue, "South", "Southern Door");
+
             Path castleMorguePathNorth = new Path(castleMorgue, prisonWardSouth, "North", "Northern Door");
             Path castleMorguePathEast = new Path(castleMorgue, castleCentralHall, "East", "Eastern Door");
+
             Path castleCentralHallPathWest = new Path(castleCentralHall, castleMorgue, "West", "Western Door");
             Path castleCentralHallPathEast = new Path(castleCentralHall, castleDiningRoom, "East", "Eastern Door");
             Path castleCentralHallPathSouth = new Path(castleCentralHall, stairway, "South", "Southern Door");
+
             Path prisonWardEastPathWest = new Path(prisonWardEast, prisonWard, "West", "Western Door");
             Path prisonWardEastPathEast = new Path(prisonWardEast, castleCourtyard, "East", "Eastern Door");
+
             Path castleCourtyardPathWest = new Path(castleCourtyard, prisonWardEast, "West", "Western Door");
             Path castleCourtyardPathSouth = new Path(castleCourtyard, castleKitchen, "South", "Southern Door");
+
             Path castleKitchenPathNorth = new Path(castleKitchen, castleCourtyard, "North", "Northern Door");
             Path castleKitchenPathSouth = new Path(castleKitchen, castleDiningRoom, "South", "Southern Door");
+
             Path castleDiningRoomPathNorth = new Path(castleDiningRoom, castleKitchen, "North", "Northern Door");
             Path castleDiningRoomPathWest = new Path(castleDiningRoom, castleCentralHall, "West", "Western Door");
+
             Path stairwayPathNorth = new Path(stairway, castleCentralHall, "North", "Northern Door");
             Path stairwayPathSouth = new Path(stairway, heavensGates, "South", "Southern Door");
+
             Path heavensGatesPathNorth = new Path(heavensGates, stairway, "North", "Northern Door");
-            Path heavensGatesPathWest = new Path(heavensGates, stairway, "West", "Western Door");
+            Path heavensGatesPathWest = new Path(heavensGates, kingsRoom, "West", "Western Door");
+
             Path kingsRoomPathEast = new Path(kingsRoom, heavensGates, "East", "Eastern Door");
 
             //Add paths
