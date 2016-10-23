@@ -27,23 +27,47 @@ import java.util.List;
  * Created by Sam on 22/10/2016.
  */
 public class GameMainFragment extends Fragment {
+    private static final int INTRO_STATE = 0;
+    private static final int GAME_STATE = 1;
+
     private View view;
-    private Player player;
     private MainActivity activity;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_commands, container, false);
-        player = new Player("You", "Handsome");
         activity = (MainActivity) getActivity();
-        activity.getLocations().get(0).addPlayer(player);
-        TextView tempText = (TextView) view.findViewById(R.id.responseText);
-        tempText.setText(activity.getCommandHistory());
+        if (activity.getGameState() == INTRO_STATE) {
+            TextView responseText = (TextView) view.findViewById(R.id.responseText);
+            EditText commandProcessor = (EditText) view.findViewById(R.id.commandProcessor);
+            Button confirmButton = (Button) view.findViewById(R.id.confirmButton);
+            confirmButton.setVisibility(View.GONE);
+            responseText.setText("Please Read The Story First In Background Story");
+            commandProcessor.setVisibility(View.GONE);
+        } else {
+            TextView tempText = (TextView) view.findViewById(R.id.responseText);
 
-        initUI();
+            if (activity.getCommandHistory() == null) {
+                String items = "";
+                String paths = "";
+                for (int i = 0; i < activity.getLocations().get(0).getInventory().getItemList().size(); i++) {
+                    items += activity.getLocations().get(0).getInventory().getItemList().get(i);
+                }
+                paths = activity.getLocations().get(0).hasPaths();
+                if (activity.getLocations().get(0).getInventory().getItemList().size() == 0) {
+                    items = "Nothing of note.";
+                }
+                tempText.setText("You are located in: \n  " + activity.getPlayer().getCurrentLocation().getName() + ". \n Items:\n  " + items + "  " + paths);
+            } else {
+                tempText.setText(activity.getCommandHistory());
+            }
+
+            initUI();
+        }
         return view;
     }
+
 
     private void initUI() {
         final TextView responseText = (TextView) view.findViewById(R.id.responseText);
@@ -52,7 +76,7 @@ public class GameMainFragment extends Fragment {
         Button confirmButton = (Button) view.findViewById(R.id.confirmButton);
         confirmButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                CommandProcessor cp = new CommandProcessor(player, commandProcessor.getText().toString());
+                CommandProcessor cp = new CommandProcessor(activity.getPlayer(), commandProcessor.getText().toString());
                 String response = cp.Execute();
                 commandProcessor.setText("");
                 String output = response + "\n" + responseText.getText() + "\n";
